@@ -59,24 +59,23 @@ public class Station{
 
     public int tripLength(Station dest) {
 
-        return helper(dest, this, 0, );
+        return helper(dest, this, 0);
     }
 
-    public int helper(Station dest, Station start, count, String[] visited) {
-        if (start = dest) {
+    public int helper(Station dest, int count, String[] visited) {
+
+        if (this = dest) {
             return 0;
         }
 
-        Station start = this;
-
-        Station iterator = start;
+        
         while (iterator.next != dest) {
             iterator = iterator.next;
             count++;
         }
         count++;
 
-        return helper
+        return count;
     }
 
 
