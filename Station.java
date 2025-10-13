@@ -58,20 +58,33 @@ public class Station{
     }
 
     public int tripLength(Station dest) {
+        ArrayList<Station> visited = new ArrayList<Station>();
 
-        return helper(dest, this, 0);
+        return helper(dest, visited);
     }
 
-    public int helper(Station dest, int count, String[] visited) {
-
-        if (this = dest) {
+    public int helper(Station dest, ArrayList<Station> visited) {
+        int count = 0;
+        if(dest == null) {
+            return -1; 
+        }
+        if (this == dest) {
             return 0;
         }
 
-        
+
+
+        Station iterator = this;
         while (iterator.next != dest) {
+            visited.add(iterator);
             iterator = iterator.next;
             count++;
+            
+            for (int i = 0; i < visited.size(); i++) {
+                if (visited.get(i).equals(iterator)) {
+                    return -1;
+                }
+            }
         }
         count++;
 
