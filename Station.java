@@ -17,16 +17,13 @@ public class Station{
     }
 
     public void addNext(Station a){
-        next = a;
-        a.prev = this;;
-
-        return;
+        this.next = a;
+        a.prev = this;
     }
 
     public void addPrev(Station a){
-        prev = a;
+        this.prev = a;
         a.next = this;
-
     }
 
     public void switchAvailable(){
@@ -39,7 +36,7 @@ public class Station{
     }
 
     public boolean isAvailable(){
-        if (service == true) {
+        if (this.service == true) {
             return true;
         } 
         else {
@@ -48,25 +45,39 @@ public class Station{
     }
 
     public void connect(Station a) {
-        next = a;
+        this.next = a;
+        a.prev = this;
     }
 
     public boolean equals(Station a){
-        if (name.equals(a.name) && color.equals(a.color)) {
+        if (this.name.equals(a.name) && this.color.equals(a.color)) {
             return true;
         }
 
         return false;
     }
 
-    public int tripLength(Station a) {
-        return 0;
+    public int tripLength(Station dest) {
+
+        return helper(dest, this, 0, );
     }
 
-    public void makeEnd() {
-        
-    }
+    public int helper(Station dest, Station start, count, String[] visited) {
+        if (start = dest) {
+            return 0;
+        }
 
+        Station start = this;
+
+        Station iterator = start;
+        while (iterator.next != dest) {
+            iterator = iterator.next;
+            count++;
+        }
+        count++;
+
+        return helper
+    }
 
 
     public String toString(){

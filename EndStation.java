@@ -5,10 +5,20 @@ public class EndStation extends Station {
     public EndStation (String color, String name) {
         super(color, name);
         this.service = true;
-        this.next = null;
-        this.prev = null;        
+        this.next = null;     
+        this.prev = null; 
+    }
+    
+    public void makeEnd() {
+        if (prev == null) {
+            this.prev = next;
+        }
+        else if (next == null) {
+            this.next = prev;
+        }
     }
 
+    @Override
     public String toString(){
         String prev1;
         String next1;
